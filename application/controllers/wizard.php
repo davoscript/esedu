@@ -12,6 +12,13 @@ class Wizard extends CI_Controller{
 	
     $this->load->view('router', $data);
   }
+
+  function establecimientosByBounds($longMin, $longMax, $latMin, $latMax){
+  	$this->load->model('Establecimiento_model');
+  	$est = $this->Establecimiento_model;
+
+  	echo json_encode( $est->getByBounds($longMin, $longMax, $latMin, $latMax) );
+  }
   
 }
 ?>
