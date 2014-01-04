@@ -1,0 +1,8 @@
+.DS_Store
+.project
+error_log
+system/*
+application/cache/*
+application/logs/*
+application/cache/*
+application/config/*
