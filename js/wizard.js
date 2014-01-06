@@ -44,6 +44,7 @@ jQuery(document).ready(function(){
 		  		
 		  		
 		  		//console.log(map.getBounds());
+		  		/*
 		  		bounds = map.getBounds();
 		  		
 		  		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
@@ -67,7 +68,7 @@ jQuery(document).ready(function(){
 							
 						});
 					  }
-					});
+					});*/
 		  		
 		  		
 		  		
@@ -113,6 +114,7 @@ jQuery(document).ready(function(){
 		  		
 		  		
 		  		//console.log(map.getBounds());
+		  		
 		  		var bounds = map.getBounds();
 		  		
 		  		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
@@ -193,42 +195,35 @@ jQuery(document).ready(function(){
 	
 	
 	// Filtros
-	var dependencia = ''; 
-	var tipo = '';
-	jQuery('.qfilter button').click(function(){
+	jQuery('#filter-form .autosubmit').click(function(){
+		jQuery('#filter-form').submit();
+	});
+	
+	jQuery('#filter-form').submit(function(e){
+		e.preventDefault();
 		
-		jQuery('.qfilter button').removeClass('current');	
-		jQuery(this).addClass('current');
+		var bounds = map.getBounds();
+		var data = jQuery('#filter-form').serialize();
 		
-		var name = jQuery(this).attr('data-name');
-		var value = jQuery(this).html();
-		
-		console.log('n: ' + name);
-		
-		if( name == 'dependencia' ){
-			dependencia = value;
-		}
-		if( name == 'tipo' ){
-			tipo = value;
-		}
-		
-		console.log( {dependencia: dependencia, tipo: tipo} );
-		
-		
-		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng;
+		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
 		jQuery.ajax({
 		  url: boundsQuery,
 		  type: "POST",
 		  dataType: "json",
-		  data: {dependencia: dependencia, tipo: tipo},
+		  data: data,
 		  success: function(res){
 		  	console.log(res);
+		  	
+		  	jQuery(markers_id).empty();
+  			jQuery(markers_stack).each(function(i,m){
+  				map.removeLayer( m );
+  			});
+  			jQuery(markers_stack).empty();
 		  	
 		  	jQuery(res).each(function(i,est){
 		  		
 		  		if( markers_stack.indexOf(est.rdb) == -1 ){
 		  			
-		  			// add a marker in the given location, attach some popup content to it and open the popup
 					var marker = L.marker([est.latitud, est.longitud]).addTo(map)
 					    .bindPopup(est.nombre);
 					
@@ -240,6 +235,7 @@ jQuery(document).ready(function(){
 			});
 		  }
 		});
+		
 	});
 	
 });

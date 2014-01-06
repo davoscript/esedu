@@ -98,21 +98,31 @@
 				      </span>
 				    </div>
 				   	-->
-				    
-				<div class="pull-left">
-					<div class="qfilter btn-group btn-group-sm">
-			          <button type="button" class="btn btn-default" data-name="dependencia">Municipal</button>
-			          <button type="button" class="btn btn-default" data-name="dependencia">Particular</button>
-			          <button type="button" class="btn btn-default" data-name="dependencia">Particular Subvencionado</button>
-			        </div>
-				</div>
 				
-				<div class="pull-left" style="margin-left:10px;">
-					<div class="qfilter btn-group btn-group-sm">
-			          <button type="button" class="btn btn-default" data-name="tipo">Científico-Humanista</button>
-			          <button type="button" class="btn btn-default" data-name="tipo">Técnico</button>
-			        </div>
-				</div>
+				<form id="filter-form">
+					<div class="pull-left">
+						<div class="btn-group btn-group-sm">
+				          <div class="input-group">
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia" value="Municipal" type="checkbox" checked="checked">
+						        &nbsp;Municipal
+						      </span>
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia" value="Particular Pagado" type="checkbox" checked="checked">
+						        &nbsp;Particular
+						      </span>
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia" value="Particular Subvencionado" type="checkbox" checked="checked">
+						        &nbsp;Particular Subvencionado
+						      </span>
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia" value="Administracion Delegada" type="checkbox" checked="checked">
+						        &nbsp;Administracion Delegada
+						      </span>
+					      </div>
+					   	</div>
+					</div>
+				</form>
 		       
 		      </div>
 			</li>
