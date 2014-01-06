@@ -1,3 +1,19 @@
+#topnav .top-fields{
+	padding:7px 0px;
+	width:300px;
+}
+#address-research{
+	border:none;
+	box-shadow: none;
+}
+
+#filters{
+	margin-left:10px;
+	width:600px;
+}
+
+
+
 #wizard-container{
 	position:absolute;
 	top:0;
@@ -26,4 +42,5 @@
 
 #wizard-container #address-search{
 	margin-bottom:10px;
+	font-size:18px;
 }

@@ -66,6 +66,7 @@ html, body{
 /* Dashboard */
 .fullh{
 	height:100%;
+	padding-right:0px;
 }
 
 
