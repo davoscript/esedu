@@ -17,7 +17,14 @@ class Wizard extends CI_Controller{
   	$this->load->model('Establecimiento_model');
   	$est = $this->Establecimiento_model;
 
-  	echo json_encode( $est->getByBounds($longMin, $longMax, $latMin, $latMax) );
+    $filtros = array();
+    if($opciones = $this->input->post('dependecia'))
+      $filtros['dependencia'] = explode(',', $opciones);
+
+    if($opciones = $this->input->post('rama_educativa'))
+      $filtros['rama_educativa'] = explode(',', $opciones);
+
+  	echo json_encode( $est->getByBounds($longMin, $longMax, $latMin, $latMax, $filtros) );
   }
   
 }

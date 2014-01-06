@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Davoscript Apps</title>
+  <title>eSEDU :: Davoscript Apps</title>
   <meta name="description" content="Davoscript Apps">
   <meta name="author" content="DAVOSCRIPT E.I.R.L.">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
