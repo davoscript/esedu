@@ -22,6 +22,9 @@ Class Establecimiento_model extends CI_Model{
 		}
 
 		$result = $this->db->query($query)->result();
+		
+		//$result = $_POST;
+		
 		return $result;
 	}
 	
