@@ -16,6 +16,9 @@ Class Establecimiento_model extends CI_Model{
 		$poligono = "GeomFromText('Polygon(($longMin $latMin,$longMin $latMax,$longMax $latMax,$longMax $latMin,$longMin $latMin))', 4326)";
 		$query = "SELECT rdb, nombre_establecimiento as nombre, X(geopunto) as longitud, Y(geopunto) as latitud FROM est_matri_2013 where MBRContains($poligono, geopunto);";
 		$result = $this->db->query($query)->result();
+		
+		//$result = $_POST;
+		
 		return $result;
 	}
   

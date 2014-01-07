@@ -35,6 +35,9 @@ jQuery(document).ready(function(){
 		  		// Make wizard dissapear
 		  		jQuery('#wizard-container').animate({ opacity: 0 }, function(){
 		  			jQuery('#wizard-container').hide();
+		  			jQuery('#sidebar-filters').show(function(){
+		  				jQuery('#sidebar-filters').animate({ opacity: 1 });
+		  			});
 		  			
 		  			// Copy searched address to the top input text 
 		  			jQuery('#address-research').val( 
@@ -110,6 +113,9 @@ jQuery(document).ready(function(){
 		  		// Make wizard dissapear
 		  		jQuery('#wizard-container').animate({ opacity: 0 }, function(){
 		  			jQuery('#wizard-container').hide();
+		  			jQuery('#sidebar-filters').show(function(){
+		  				jQuery('#sidebar-filters').animate({ opacity: 1 });
+		  			});
 		  		});
 		  		
 		  		

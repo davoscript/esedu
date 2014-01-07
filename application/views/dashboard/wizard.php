@@ -47,6 +47,39 @@
 				</div>
 			</div>
 			
+			<div id="sidebar-filters">
+				<form id="filter-form">
+					
+						<div class="btn-group btn-group-sm">
+				          <div class="input-group">
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia[]" value="Municipal" type="checkbox" checked="checked">
+						        &nbsp;Municipal
+						      </span>
+						  </div>
+						  <div class="input-group">
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia[]" value="Particular Pagado" type="checkbox" checked="checked">
+						        &nbsp;Particular
+						      </span>
+						  </div>
+						  <div class="input-group"> 
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia[]" value="Particular Subvencionado" type="checkbox" checked="checked">
+						        &nbsp;Particular Subvencionado
+						      </span>
+						  </div>
+						  <div class="input-group">
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="depedencia[]" value="Administracion Delegada" type="checkbox" checked="checked">
+						        &nbsp;Administracion Delegada
+						      </span>
+					      </div>
+					   	</div>
+					
+				</form>
+			</div>
+			
 			
   		</div><!-- end col-9 -->
   		
