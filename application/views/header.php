@@ -98,7 +98,7 @@
 				      </span>
 				    </div>
 				   	-->
-				
+				<!--
 				<form id="filter-form">
 					<div class="pull-left">
 						<div class="btn-group btn-group-sm">
@@ -123,6 +123,7 @@
 					   	</div>
 					</div>
 				</form>
+				-->
 		       
 		      </div>
 			</li>

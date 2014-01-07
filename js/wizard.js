@@ -126,11 +126,14 @@ jQuery(document).ready(function(){
 		  		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
 		  		console.log(boundsQuery);
 		  		
+		  			var data = jQuery('#filter-form').serialize();
+					console.log(data);
 		  		
 	  				jQuery.ajax({
 					  url: boundsQuery,
 					  type: "POST",
 					  dataType: "json",
+					  data: data,
 					  success: function(res){
 					  	//console.log(res);
 					  	jQuery(res).each(function(i,est){
@@ -162,6 +165,8 @@ jQuery(document).ready(function(){
 		
 		if( map.getZoom() > 13 ){
 			var bounds = map.getBounds();
+			var data = jQuery('#filter-form').serialize();
+			console.log(data);
 	    
 		    var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
 	  		console.log(boundsQuery);
@@ -176,6 +181,7 @@ jQuery(document).ready(function(){
 				  url: boundsQuery,
 				  type: "POST",
 				  dataType: "json",
+				  data: data,
 				  success: function(res){
 				  	//console.log(res);
 				  	jQuery(res).each(function(i,est){
@@ -210,6 +216,7 @@ jQuery(document).ready(function(){
 		
 		var bounds = map.getBounds();
 		var data = jQuery('#filter-form').serialize();
+		console.log(data);
 		
 		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
 		jQuery.ajax({
