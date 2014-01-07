@@ -3,12 +3,12 @@ class Wizard extends CI_Controller{
   
   function region($rid = false){
   	$data['module'] = 'dashboard';
-	$data['sub'] = 'wizard';
+	  $data['sub'] = 'wizard';
 	
-	if( $rid )
-		$data['establecimientos'] = $this->db->where('numero_region', $rid)->get('est_matri_2013')->result();
-	else
-		$data['establecimientos'] = $this->db->where('numero_region', 13)->get('est_matri_2013')->result();
+  	if( $rid )
+  		$data['establecimientos'] = $this->db->where('numero_region', $rid)->get('est_matri_2013')->result();
+  	else
+  		$data['establecimientos'] = $this->db->where('numero_region', 13)->get('est_matri_2013')->result();
 	
     $this->load->view('router', $data);
   }
@@ -17,10 +17,12 @@ class Wizard extends CI_Controller{
   	$this->load->model('Establecimiento_model');
   	$est = $this->Establecimiento_model;
 
-    $filtros = array();
-    $filtros['dependencia'] = explode(',', $_POST['dependencia']);
+    //var_dump($_POST['dependencia']); return;
 
-    var_dump($_POST['dependencia']); return;
+    $filtros = array();
+    $filtros['dependencia'] = array_values($_POST['dependencia']);
+
+    
 
     //  if($opciones = $this->input->post('rama_educativa'))
     //    $filtros['rama_educativa'] = explode(',', $opciones);

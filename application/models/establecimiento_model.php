@@ -18,7 +18,7 @@ Class Establecimiento_model extends CI_Model{
 		$query .= " FROM est_matri_2013 WHERE MBRContains($poligono, geopunto)";
 
 		foreach ($filtros as $filtro => $opciones) {
-			$query .= " AND $filtro IN ('".implode("'", $opciones)."')";
+			$query .= " AND $filtro IN ('".implode("','", $opciones)."')";
 		}
 
 		$result = $this->db->query($query)->result();
