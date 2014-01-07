@@ -18,11 +18,12 @@ class Wizard extends CI_Controller{
   	$est = $this->Establecimiento_model;
 
     $filtros = array();
-    if($opciones = $this->input->post('dependecia'))
-      $filtros['dependencia'] = explode(',', $opciones);
+    $filtros['dependencia'] = explode(',', $_POST['dependencia']);
 
-    if($opciones = $this->input->post('rama_educativa'))
-      $filtros['rama_educativa'] = explode(',', $opciones);
+    var_dump($_POST['dependencia']); return;
+
+    //  if($opciones = $this->input->post('rama_educativa'))
+    //    $filtros['rama_educativa'] = explode(',', $opciones);
 
   	echo json_encode( $est->getByBounds($longMin, $longMax, $latMin, $latMax, $filtros) );
   }
