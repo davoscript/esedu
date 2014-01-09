@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme-yeti.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/css/wizard.css" />
+  
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -46,9 +48,9 @@
 			<li class="top-fields">
 				<form id="form-address-research">
 					<div class="input-group input-group-sm">
-						<input type="text" id="address-research" class="form-control input-sm" />
+						<input type="text" id="address-research" class="form-control input-sm" placeholder="Calle 123, Comuna" />
 						<span class="input-group-btn">
-				          <button class="btn btn-warning" type="button">
+				          <button class="btn btn-info" type="button">
 				        	<span class="glyphicon glyphicon-search"></span>
 				          </button>
 					    </span>
@@ -56,75 +58,52 @@
 			    </form>
 			</li>
 			<li class="top-fields">
-				<!--
-				<div class="btn-group">
-				  <button type="button" class="btn btn-default btn-sm">Action</button>
-				  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-				    <span class="caret"></span>
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu" role="menu">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-				-->
 				<div id="filters" class="btn-toolbar" role="toolbar">
-					
-					<!--
-					<div class="input-group col-sm-1 pull-left">
-				      <span class="input-group-addon">
-				        <input type="radio">
-				        <span>&nbsp;Municipal</span>
-				      </span>
-				      <span class="input-group-addon">
-				        <input type="radio">
-				        <span>&nbsp;Particular</span>
-				      </span>
-				    </div>
-				    
-				    
-				    <div class="input-group col-sm-1 pull-left">
-				      <span class="input-group-addon">
-				        <input type="radio">
-				        <span>&nbsp;Científico-Humanista</span>
-				      </span>
-				      <span class="input-group-addon">
-				        <input type="radio">
-				        <span>&nbsp;Técnico</span>
-				      </span>
-				    </div>
-				   	-->
 
-				<!--<form id="filter-form">
-					<div class="pull-left">
-						<div class="btn-group btn-group-sm">
-				          <div class="input-group">
-						      <span class="input-group-addon">
-						        <input class="autosubmit" name="dependencia[]" value="Municipal" type="checkbox" checked="checked">
-						        &nbsp;Municipal
-						      </span>
-						      <span class="input-group-addon">
+					<form id="filter-form">
+						
+						<div class="btn-group btn-group-sm" data-toggle="buttons">
+							<label class="btn btn-primary active">
+								<input class="autosubmit" name="dependencia[]" value="Municipal" type="checkbox" checked="checked">
+						        Municipal
+							</label>
+						  	<label class="btn btn-primary active">
 						        <input class="autosubmit" name="dependencia[]" value="Particular Pagado" type="checkbox" checked="checked">
-						        &nbsp;Particular
-						      </span>
-						      <span class="input-group-addon">
+						        Particular
+						  	</label>
+						  	<label class="btn btn-primary active">
 						        <input class="autosubmit" name="dependencia[]" value="Particular Subvencionado" type="checkbox" checked="checked">
-						        &nbsp;Particular Subvencionado
-						      </span>
-						      <span class="input-group-addon">
+						        &nbsp;Particular Sub.
+						    </label>
+						  	<label class="btn btn-primary active">
 						        <input class="autosubmit" name="dependencia[]" value="Administracion Delegada" type="checkbox" checked="checked">
-						        &nbsp;Administracion Delegada
-						      </span>
-					      </div>
+						        &nbsp;Adm. Delegada
+						    </label>
 					   	</div>
-					</div>
-
-				</form>
-				-->
+					   	
+					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
+	  						<label class="btn btn-primary active">
+								<input class="autosubmit" name="nivel_ensenanza[]" value="Básica" type="checkbox" checked="checked">
+						        Ed. Básica
+							</label>
+							<label class="btn btn-primary active">
+								<input class="autosubmit" name="nivel_ensenanza[]" value="Media" type="checkbox" checked="checked">
+						        Ed. Media
+							</label>
+					   	</div>
+					   	
+					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
+	  						<label class="btn btn-primary active">
+								<input class="autosubmit" name="orden" value="psu" type="radio" checked="checked">
+						        PSU
+							</label>
+							<label class="btn btn-primary">
+								<input class="autosubmit" name="orden" value="simce" type="radio">
+						        SIMCE
+							</label>
+					   	</div>
+						
+					</form>
 		       
 		      </div>
 			</li>

@@ -21,6 +21,7 @@ class Wizard extends CI_Controller{
 
     $filtros = array();
     $filtros['dependencia'] = array_values($_POST['dependencia']);
+	//$filtros['nivel_ensenanza'] = array_values($_POST['dependencia']);
 
     
 

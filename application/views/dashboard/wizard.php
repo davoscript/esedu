@@ -22,7 +22,6 @@
   
   
   <!-- Wizard -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/css/wizard.css" />
   <script src="<?php echo base_url(); ?>/js/wizard.js"></script>
 
   <div class="containerlg fullh">
@@ -47,36 +46,49 @@
 				</div>
 			</div>
 			
-			<div id="sidebar-filters">
+			
+			<div id="sidebar">
+				<ul id="sidebar-list">
+					
+				</ul>
+				<!--
 				<form id="filter-form">
 					
-						<div class="btn-group btn-group-sm">
-				          <div class="input-group">
-						      <span class="input-group-addon">
-						        <input class="autosubmit" name="dependencia[]" value="Municipal" type="checkbox" checked="checked">
-						        &nbsp;Municipal
-						      </span>
-						  </div>
-						  <div class="input-group">
-						      <span class="input-group-addon">
+						<div class="btn-group btn-group-sm" data-toggle="buttons">
+							<label class="btn btn-success">
+								<input class="autosubmit" name="dependencia[]" value="Municipal" type="checkbox" checked="checked">
+						        Municipal
+							</label>
+						  	<label class="btn btn-primary">
 						        <input class="autosubmit" name="dependencia[]" value="Particular Pagado" type="checkbox" checked="checked">
-						        &nbsp;Particular
-						      </span>
-						  </div>
-						  <div class="input-group"> 
-						      <span class="input-group-addon">
+						        Particular
+						  	</label>
+						  	<label class="btn btn-primary">
 						        <input class="autosubmit" name="dependencia[]" value="Particular Subvencionado" type="checkbox" checked="checked">
 						        &nbsp;Particular Subvencionado
+						    </label>
+						  	<label class="btn btn-primary">
+						        <input class="autosubmit" name="dependencia[]" value="Administracion Delegada" type="checkbox" checked="checked">
+						        &nbsp;Administracion Delegada
+						    </label>
+					   	</div>
+					   	
+					   	<h2>Nivel</h2>
+					   	<div class="btn-group btn-group-sm">
+				          <div class="input-group">
+						      <span class="input-group-addon">
+						        <input class="autosubmit" name="nivel[]" value="Media" type="checkbox" checked="checked">
+						        &nbsp;Ed. Básica
 						      </span>
 						  </div>
 						  <div class="input-group">
 						      <span class="input-group-addon">
-						        <input class="autosubmit" name="dependencia[]" value="Administracion Delegada" type="checkbox" checked="checked">
-						        &nbsp;Administracion Delegada
+						        <input class="autosubmit" name="nivel[]" value="Básica" type="checkbox" checked="checked">
+						        &nbsp;Ed. Media
 						      </span>
-					      </div>
+						  </div>
 					   	</div>
-					
+					-->
 				</form>
 			</div>
 			

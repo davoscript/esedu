@@ -14,7 +14,7 @@ Class Establecimiento_model extends CI_Model{
 
 	public function getByBounds($longMin = 0, $longMax = 0, $latMin = 0, $latMax = 0, $filtros = null){
 		$poligono = "GeomFromText('Polygon(($longMin $latMin,$longMin $latMax,$longMax $latMax,$longMax $latMin,$longMin $latMin))', 4326)";
-		$query = "SELECT rdb, nombre_establecimiento as nombre, X(geopunto) as longitud, Y(geopunto) as latitud";
+		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud";
 		$query .= " FROM est_matri_2013 WHERE MBRContains($poligono, geopunto)";
 
 		foreach ($filtros as $filtro => $opciones) {
