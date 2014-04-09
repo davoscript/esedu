@@ -31,7 +31,7 @@
 		</a>
 		
 		<div class="navbar-header">
-	      <a class="navbar-brand" href="#">eSEDU</a>
+	      <a class="navbar-brand" href="<?php echo site_url("wizard/region/"); ?>">eSEDU</a>
 	    </div>
 	    <ul class="nav navbar-nav">
 	    	<!--
@@ -93,14 +93,15 @@
 					   	</div>
 					   	
 					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
-	  						<label class="btn btn-primary active">
-								<input class="autosubmit" name="orden" value="psu" type="radio" checked="checked">
+	  						<label class="btn btn-primary radioch active">
+								<input class="autosubmit_r" name="orden" value="psu" type="radio" checked="checked">
 						        PSU
 							</label>
-							<label class="btn btn-primary">
-								<input class="autosubmit" name="orden" value="simce" type="radio">
+							<label class="btn btn-primary radioch">
+								<input class="autosubmit_r" name="orden" value="simce" type="radio">
 						        SIMCE
 							</label>
+							<input id="orden" name="orden2" value="psu" type="hidden">
 					   	</div>
 						
 					</form>

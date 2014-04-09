@@ -13,12 +13,16 @@ jQuery(document).ready(function(){
 	
 	function addToList( est, i ){
 		
+		var psu = (est.psu == '' || est.psu == ' ' || est.psu == null) ? '---' : est.psu;
+		var simce = (est.simce == '' || est.simce == ' ' || est.simce == null) ? '---' : est.simce;
+		
 		var ltext = '<li>';
 			ltext += '<a href="'+ base_url +'/establecimiento/perfil/'+ est.rdb +'/" class="btn btn-success btn-xs pull-right"><span class="glyphicon glyphicon-info-sign"></span></a>';
 			ltext += est.nombre;
 			ltext += '<br/>';
 			ltext += '<span class="data">Dependencia: ' + est.dependencia + '</span><br/>';
-			ltext += '<span class="label label-warning">PSU: 745</span>';
+			ltext += '<span class="label label-warning">PSU: ' + psu + '</span>&nbsp;';
+			ltext += '<span class="label label-info">SIMCE: ' + simce + '</span>';
 			ltext += '</li>';
 			
 		ltext = jQuery( ltext );
@@ -48,6 +52,8 @@ jQuery(document).ready(function(){
 			data = new Array();
 		}
 		
+		console.log(data);
+		
 		// Clear markers
 		jQuery(markers_id).empty();
 		jQuery(markers_stack).each(function(i,m){
@@ -63,11 +69,12 @@ jQuery(document).ready(function(){
 		  dataType: "json",
 		  data: data,
 		  success: function(res){
+		  	console.log(res);
 		  	jQuery(res).each(function(i,est){
 		  		
 		  		// add a marker in the given location, attach some popup content to it and open the popup
 				var marker = L.marker([est.latitud, est.longitud]).addTo(map)
-				    .bindPopup(est.nombre);
+				    .bindPopup(est.nombre + '<br/>' + est.direccion + ' #' + est.direccion_n);
 				    
 				markers_id.push( est.rdb );
 				markers_stack.push( marker );
@@ -191,6 +198,17 @@ jQuery(document).ready(function(){
 	});*/
 	
 	jQuery('#filter-form .autosubmit').change(function(){
+		jQuery('#filter-form').submit();
+	});
+	
+	jQuery('#filter-form .radioch').click(function(){
+		var val = jQuery(this).find('.autosubmit_r').attr('value');
+		console.log(val);
+		jQuery('#orden').val( val );
+		jQuery('#orden').change();
+	});
+	
+	jQuery('#orden').change(function(){
 		jQuery('#filter-form').submit();
 	});
 	

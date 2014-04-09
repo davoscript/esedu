@@ -1,5 +1,9 @@
 <div class="containerlg quarter">
 	<div class="row">
+		<?php 
+			$est = $this->db->where('rdb', $rbd)->get('est_busqueda')->result();
+			$est = $est[0];
+		?>	
 
 		<div class="col-lg-6 bg_grey">
 			<!-- col menu -->
@@ -8,15 +12,40 @@
 			</div>
 		</div><!-- end col-3 -->
 
-		<div class="col-lg-3 bg_white" style="padding:0px;">
-			<!-- col content -->
-			<?php $this->load->view("$module/geo"); ?>
-		</div><!-- end col-9 -->
+		<?php if( $est->rdb == 8485 ){ ?>
+			<div class="col-lg-3 bg_white" style="padding:0px;">
+				<!-- col content -->
+				<?php $this->load->view("$module/geo"); ?>
+			</div><!-- end col-9 -->
+			<div class="col-lg-3 bg_black" style="padding:0px;">
+				<!-- col content -->
+
+				<a class="twitter-timeline" href="https://twitter.com/ceain" data-widget-id="411925513809063936">Tweets por @ceain</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				<!--
+				<a class="twitter-timeline" href="https://twitter.com/search?q=<?php echo urlencode($est->nombre_establecimiento); ?>" data-widget-id="421316370878300161">Tweets sobre "<?php echo $est->nombre_establecimiento; ?>"</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				-->
+	
+			</div>
+		<?php }else{?>
+			<div class="col-lg-6 bg_white" style="padding:0px;">
+				<!-- col content -->
+				<?php $this->load->view("$module/geo"); ?>
+			</div><!-- end col-9 -->
+		<?php }?>
 		
+		
+		<!--
 		<div class="col-lg-3 bg_black" style="padding:0px;">
 			<!-- col content -->
+			<!--
 			<a class="twitter-timeline" href="https://twitter.com/ceain" data-widget-id="411925513809063936">Tweets por @ceain</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			
+			<a class="twitter-timeline" href="https://twitter.com/search?q=<?php echo urlencode($est->nombre_establecimiento); ?>" data-widget-id="421316370878300161">Tweets sobre "<?php echo $est->nombre_establecimiento; ?>"</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 		</div><!-- end col-9 -->
 
 	</div><!-- end row -->
@@ -86,12 +115,19 @@
 	      vAxis: {minValue:300, maxValue:400}
 	    };
 	    
+	    <?php
+         	$simce = $this->db->where('rdb', $rbd)->order_by('agno', 'ASC')->limit(12000)->get('simce')->result();
+			//print_r( $psu );
+			$simcedata = '';
+			foreach ($simce as $key => $s) {
+				$simcedata .= "['$s->agno', $s->simce_leng, $s->simce_mate],";
+			}
+			$simcedata = rtrim($simcedata, ',');
+         ?>
+	    
 	     var data = google.visualization.arrayToDataTable([
            ['Año', 'LEC', 'MAT'],
-           ['2006',  331,       365],
-           ['2008',  337,      364],
-           ['2010',  339,      362],
-           ['2012',  329,      356]
+           <?php echo $simcedata; ?>
          ]);
 	
 	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
@@ -115,7 +151,22 @@
 	      vAxis: {minValue:600, maxValue:700}
 	    };
 	    
+	    <?php
+         	$psu = $this->db->where('rdb', $rbd)->order_by('agno', 'ASC')->limit(12000)->get('psu')->result();
+			//print_r( $psu );
+			$psudata = '';
+			foreach ($psu as $key => $p) {
+				$psudata .= "['$p->agno', $p->psu_lenguaje, $p->psu_matematica, $p->psu_nem],";
+			}
+			$psudata = rtrim($psudata, ',');
+         ?>
+	    
 	     var data2 = google.visualization.arrayToDataTable([
+           ['Año', 'LEC', 'MAT', 'NEM'],
+           <?php echo $psudata; ?>
+         ]);
+	    
+	     /*var data2 = google.visualization.arrayToDataTable([
            ['Año', 'LEC', 'MAT', 'NEM'],
            ['2006',  659, 675, 581],
            ['2007',  661, 681, 588],
@@ -124,7 +175,7 @@
            ['2010',  679, 702, 598],
            ['2011',  664, 674, 613],
            ['2012',  674, 680, 608]
-         ]);
+         ]);*/
 	
 	    var chart2 = new google.visualization.LineChart(document.getElementById('chart_psu'));
 	
