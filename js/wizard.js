@@ -137,8 +137,8 @@ jQuery(document).ready(function(){
   		jQuery('#address-research').val( jQuery('#address-search').val() );
 		
 		
-		geoCode( address, function(){} );
-		/*
+		//geoCode( address, function(){} );
+		
 		geoCode( address, function(){
 			// Make wizard dissapear
 	  		jQuery('#wizard-container').animate({ opacity: 0 }, function(){
@@ -150,7 +150,7 @@ jQuery(document).ready(function(){
 	  		// Copy search query to top search input
 	  		jQuery('#address-research').val( jQuery('#address-search').val() );
 	  		
-		});*/
+		});
 		
 	});
 	
