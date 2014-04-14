@@ -6,3 +6,6 @@ application/cache/*
 application/logs/*
 application/cache/*
 application/config/*
+
+deploy.sh
+rsync_exclude.txt

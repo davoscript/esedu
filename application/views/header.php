@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>eSEDU :: Davoscript Apps</title>
-  <meta name="description" content="Davoscript Apps">
+  <title>eSEDU :: Escenario Educacional</title>
+  <meta name="description" content="El escenario de la educacion chilena entrega informacion sobre los establecimientos educacionales">
   <meta name="author" content="DAVOSCRIPT E.I.R.L.">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme-yeti.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>/css/wizard.css" />
+  <link rel="stylesheet" href="<?php echo base_url(); ?>css/wizard.css" />
   
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,15 +26,16 @@
 
 	<nav id="topnav" class="navbar navbar-inverse navbar-static-top" role="navigation">
 		
-		<a href="<?php echo site_url("dashboard"); ?>">
-		<img id="logo" src="<?php echo base_url(); ?>/img/logo_mini.png" alt="" />
+		<a href="<?php echo site_url("wizard/region"); ?>">
+			<img id="logo" src="<?php echo base_url(); ?>/img/logo_mini.png" alt="eSEDU" title="Escenario Educacional" />
 		</a>
 		
 		<div class="navbar-header">
-	      <a class="navbar-brand" href="<?php echo site_url("wizard/region/"); ?>">eSEDU</a>
+	      <a class="navbar-brand" href="<?php echo site_url("wizard/region"); ?>" title="Escenario Educacional">eSEDU</a>
 	    </div>
+
 	    <ul class="nav navbar-nav">
-	    	<!--
+			<!--
 			<li class="">
 			    <a href="<?php echo site_url("dashboard"); ?>">Dashboard</a>
 			</li>
@@ -45,6 +46,7 @@
 			    <a href="<?php echo site_url("comparador"); ?>">Comparador</a>
 			</li>
 			-->
+
 			<li class="top-fields">
 				<form id="form-address-research">
 					<div class="input-group input-group-sm">
@@ -109,6 +111,6 @@
 		      </div>
 			</li>
 	    </ul>
-	    
+
 		<p class="navbar-text pull-right">Contacto</p>
 	</nav>
