@@ -52,7 +52,7 @@
 					<div class="input-group input-group-sm">
 						<input type="text" id="address-research" class="form-control input-sm" placeholder="Calle 123, Comuna" />
 						<span class="input-group-btn">
-				          <button class="btn btn-info" type="button">
+				          <button class="btn btn-info" type="submit">
 				        	<span class="glyphicon glyphicon-search"></span>
 				          </button>
 					    </span>

@@ -20,7 +20,7 @@ jQuery(document).ready(function(){
 			ltext += '<a href="'+ ajax_base_url +'establecimiento/perfil/'+ est.rdb +'/" class="btn btn-success btn-xs pull-right"><span class="glyphicon glyphicon-info-sign"></span></a>';
 			ltext += est.nombre;
 			ltext += '<br/>';
-			ltext += '<span class="data">Dependencia: ' + est.dependencia + '</span><br/>';
+			ltext += '<span class="data">'+est.nombre_comuna+ ' | ' + est.dependencia + '</span><br/>';
 			ltext += '<span class="label label-warning">PSU: ' + psu + '</span>&nbsp;';
 			ltext += '<span class="label label-info">SIMCE: ' + simce + '</span>';
 			ltext += '</li>';
