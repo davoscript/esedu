@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Davoscript Apps</title>
-  <meta name="description" content="Davoscript Apps">
+  <title>eSEDU :: Escenario de la Educaci&oacute;n</title>
+  <meta name="description" content="El escenario de la educacion chilena entrega informacion sobre los establecimientos educacionales">
   <meta name="author" content="DAVOSCRIPT E.I.R.L.">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme-yeti.css">
@@ -24,14 +24,15 @@
 
 	<nav id="topnav" class="navbar navbar-inverse navbar-static-top" role="navigation">
 		
-		<a href="<?php echo site_url("dashboard"); ?>">
-		<img id="logo" src="<?php echo base_url(); ?>/img/logo_mini.png" alt="" />
+		<a href="<?php echo site_url("wizard/region"); ?>">
+			<img id="logo" src="<?php echo base_url(); ?>/img/logo_mini.png" alt="" />
 		</a>
 		
 		<div class="navbar-header">
-	      <a class="navbar-brand" href="#">eSEDU</a>
+	      <a class="navbar-brand" href="<?php echo site_url("wizard/region"); ?>">eSEDU</a>
 	    </div>
-	    <ul class="nav navbar-nav">
+
+	    <!--<ul class="nav navbar-nav">
 			<li class="">
 			    <a href="<?php echo site_url("dashboard"); ?>">Dashboard</a>
 			</li>
@@ -41,6 +42,8 @@
 			<li class="">
 			    <a href="<?php echo site_url("comparador"); ?>">Comparador</a>
 			</li>
-	    </ul>
+	    </ul>-->
+	    <p class="navbar-text">Escenario de la Educaci&oacute;n</p>
+
 		<p class="navbar-text pull-right">Contacto</p>
 	</nav>
