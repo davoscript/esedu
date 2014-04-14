@@ -4,9 +4,14 @@
 
 <div id="map"></div>
 
+<?php
+	$est = $this->db->where('rdb', $rbd)->get('est_busqueda')->result();
+	$est = $est[0];
+?>
+
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-		var myLatlng = new google.maps.LatLng(-33.44468254,-70.65031555);
+		var myLatlng = new google.maps.LatLng(<?php echo $est->latitud; ?>,<?php echo $est->longitud; ?>);
 		var mapOptions = {
 		  zoom: 16,
 		  center: myLatlng

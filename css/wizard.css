@@ -1,3 +1,19 @@
+#topnav .top-fields{
+	padding:7px 0px;
+	width:300px;
+}
+#address-research{
+	border:none;
+	box-shadow: none;
+}
+
+#filters{
+	margin-left:10px;
+	width:650px;
+}
+
+
+
 #wizard-container{
 	position:absolute;
 	top:0;
@@ -26,4 +42,74 @@
 
 #wizard-container #address-search{
 	margin-bottom:10px;
+	font-size:18px;
 }
+
+
+
+#sidebar{
+	display:none;
+	opacity:0;
+	position:absolute;
+	top:0;
+	right:0;
+	width:300px;
+	height:100%;
+	padding:5px;
+	background:rgba(0,0,0,.3);
+	/*background:none;*/
+}
+#sidebar-list{
+	list-style:none;
+	color:#FFF;
+	padding:0px;
+	margin:0px;
+	max-height:100%;
+	overflow:auto;
+}
+#sidebar-list li{
+	font-size:12px;
+	padding:5px;
+	/*border-bottom:1px solid #CCC;*/
+	margin-bottom:5px;
+	background:rgba(0,0,0,.7);
+	-webkit-animation: liSlide 0.5s; /* Safari and Chrome */
+}
+#sidebar-list li:hover{
+	cursor:pointer;
+	color:#222;
+	background:rgba(255,255,255,1);
+}
+#sidebar-list li span{
+	font-size:10px;
+}
+#sidebar-list li span.data{
+	line-height:24px;
+}
+#sidebar-list li .label{
+	padding:3px 4px;
+	line-height:22px
+}
+#sidebar-list li .btn{
+	margin:-5px -5px 0px 7px;	
+}
+#sidebar-list li .glyphicon{
+	font-size:20px;
+	color:#FFF;
+}
+
+@-webkit-keyframes liSlide /* Safari and Chrome */
+{
+	from {
+		opacity:0;
+		-webkit-transform: translate(100px,0px);
+	}
+	to {
+		opacity:1;
+		-webkit-transform: translate(0px,0px);
+	}
+}
+
+
+
+
