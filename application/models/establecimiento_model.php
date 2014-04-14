@@ -22,21 +22,20 @@ Class Establecimiento_model extends CI_Model{
 		$latMax -= $latDiff;
 
 		$poligono = "GeomFromText('Polygon(($longMin $latMin,$longMin $latMax,$longMax $latMax,$longMax $latMin,$longMin $latMin))', 4326)";
-		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud, direccion, direccion_n, psu, simce, nombre_comuna";
-		$query .= " FROM est_busqueda WHERE MBRContains($poligono, geopunto)";
+		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud, direccion, direccion_n, psu, simce, nombre_comuna ";
+		$query .= " FROM est_busqueda WHERE MBRContains($poligono, geopunto) ";
 
 		foreach ($filtros as $filtro => $opciones) {
 			
 			if( $filtro == 'nivel_ensenanza' ){
-				$query .= " AND (";
+				$query .= ' AND (';
+				
+				$opcs = array();
 				foreach ($opciones as $key => $op) {
-					if( $key == 1 ){
-						$query .= " OR $filtro LIKE '%$op%'";
-					}else{
-						$query .= " $filtro LIKE '%$op%'";
-					}
+					$opcs[] = "$filtro LIKE '%$op%'";
 				}
-				$query .= ")";
+				
+				$query .= implode(' OR ',$opcs).')';
 			}else{
 				$query .= " AND $filtro IN ('".implode("','", $opciones)."')";
 			}

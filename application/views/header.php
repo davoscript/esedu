@@ -47,6 +47,8 @@
 			</li>
 			-->
 
+			<?php if ($module == 'dashboard' && $sub == 'wizard'): ?>
+
 			<li class="top-fields">
 				<form id="form-address-research">
 					<div class="input-group input-group-sm">
@@ -110,6 +112,7 @@
 		       
 		      </div>
 			</li>
+			<?php endif ?>
 	    </ul>
 
 		<p class="navbar-text pull-right">Contacto</p>
