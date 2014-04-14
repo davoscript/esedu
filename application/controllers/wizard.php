@@ -21,8 +21,8 @@ class Wizard extends CI_Controller{
 
     $filtros = array();
     $filtros['dependencia'] = array_values($_POST['dependencia']);
-	$filtros['nivel_ensenanza'] = array_values($_POST['nivel_ensenanza']);
-	$order = $_POST['orden2'];
+    $filtros['nivel_ensenanza'] = array_values($_POST['nivel_ensenanza']);
+    $order = $_POST['orden2'];
 
     //  if($opciones = $this->input->post('rama_educativa'))
     //    $filtros['rama_educativa'] = explode(',', $opciones);
@@ -31,4 +31,3 @@ class Wizard extends CI_Controller{
   }
   
 }
-?>

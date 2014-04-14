@@ -1,10 +1,6 @@
 <div class="containerlg quarter">
 	<div class="row">
-		<?php 
-			$est = $this->db->where('rdb', $rbd)->get('est_busqueda')->result();
-			$est = $est[0];
-		?>	
-
+		
 		<div class="col-lg-6 bg_grey">
 			<!-- col menu -->
 			<div class="innerbox">
@@ -116,19 +112,15 @@
 	    };
 	    
 	    <?php
-         	$simce = $this->db->where('rdb', $rbd)->order_by('agno', 'ASC')->limit(12000)->get('simce')->result();
-			//print_r( $psu );
-			$simcedata = '';
+         	$simcedata = array();
 			foreach ($simce as $key => $s) {
-				$simcedata .= "['$s->agno', $s->simce_leng, $s->simce_mate],";
+				$simcedata[] = "['$s->agno', $s->simce_leng, $s->simce_mate]";
 			}
-			$simcedata = rtrim($simcedata, ',');
+			$simcedata = implode(',', $simcedata);
          ?>
 	    
 	     var data = google.visualization.arrayToDataTable([
-           ['Año', 'LEC', 'MAT'],
-           <?php echo $simcedata; ?>
-         ]);
+           ['Año', 'LEC', 'MAT'], <?php echo $simcedata; ?>]);
 	
 	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 	
@@ -152,9 +144,7 @@
 	    };
 	    
 	    <?php
-         	$psu = $this->db->where('rdb', $rbd)->order_by('agno', 'ASC')->limit(12000)->get('psu')->result();
-			//print_r( $psu );
-			$psudata = '';
+         	$psudata = '';
 			foreach ($psu as $key => $p) {
 				$psudata .= "['$p->agno', $p->psu_lenguaje, $p->psu_matematica, $p->psu_nem],";
 			}

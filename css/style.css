@@ -98,7 +98,11 @@ html, body{
 
 /* Footer */
 #footer p{
-	padding:5px 0px;
+	background: rgba(255,255,255,0.9);
+	padding: 5px;
+	margin:0;
 	font-size:12px;
-	margin-bottom:0px;
+	bottom:0px;
+	position:absolute;
+	z-index: 999;
 }
