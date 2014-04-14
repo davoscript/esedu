@@ -12,19 +12,20 @@ Class Establecimiento_model extends CI_Model{
 	//   }
 	// }
 
-	public function getByBounds($longMin = 0, $longMax = 0, $latMin = 0, $latMax = 0, $filtros = null, $order = null){
+	public function getByBounds($longMin = 0.0, $longMax = 0.0, $latMin = 0.0, $latMax = 0.0, $filtros = null, $order = null, $page = 0, $per_page = 10){
+		//$longDiff = ($longMax - $longMin) / 20.0;
+		//$longMin += $longDiff;
+		//$longMax -= $longDiff;
+
+		$latDiff = ($latMax - $latMin) / 20.0;
+		$latMin += $latDiff;
+		$latMax -= $latDiff;
+
 		$poligono = "GeomFromText('Polygon(($longMin $latMin,$longMin $latMax,$longMax $latMax,$longMax $latMin,$longMin $latMin))', 4326)";
 		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud, direccion, direccion_n, psu, simce, nombre_comuna";
 		$query .= " FROM est_busqueda WHERE MBRContains($poligono, geopunto)";
 
 		foreach ($filtros as $filtro => $opciones) {
-			
-			//$query .= " AND $filtro IN ('".implode("','", $opciones)."')";
-			/*$query .= " AND ";
-			foreach ($opciones as $key => $op) {
-				$query .= " $filtro LIKE  ";
-			}*/
-			
 			
 			if( $filtro == 'nivel_ensenanza' ){
 				$query .= " AND (";
@@ -41,9 +42,11 @@ Class Establecimiento_model extends CI_Model{
 			}
 		}
 		
-		$query .= " ORDER BY $order DESC";
+		if($order)
+			$query .= " ORDER BY $order DESC";
 		
 		//echo $query;
+		$query .= " LIMIT $per_page OFFSET ".($per_page*$page);
 
 		$result = $this->db->query($query)->result();
 		

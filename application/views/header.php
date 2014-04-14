@@ -14,7 +14,7 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <script type="text/javascript">
-  	var ajax_base_url = '<?php echo site_url(); ?>/';
+  	var ajax_base_url = '<?php echo base_url(); ?>';
   </script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
@@ -52,7 +52,7 @@
 					<div class="input-group input-group-sm">
 						<input type="text" id="address-research" class="form-control input-sm" placeholder="Calle 123, Comuna" />
 						<span class="input-group-btn">
-				          <button class="btn btn-info" type="button">
+				          <button class="btn btn-info" type="submit">
 				        	<span class="glyphicon glyphicon-search"></span>
 				          </button>
 					    </span>
