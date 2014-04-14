@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
 	var markers_id = new Array();
 	var defPin = new L.Icon.Default();
 	var pin = L.icon({
-	    iconUrl: 'http://localhost/esedu//img/logo_mini.png',
+	    iconUrl: ajax_base_url+'img/logo_mini.png',
 	    iconSize: [45, 45],
 	    iconAnchor: [21, 45]
 	});
@@ -16,8 +16,8 @@ jQuery(document).ready(function(){
 		var psu = (est.psu == '' || est.psu == ' ' || est.psu == null) ? '---' : est.psu;
 		var simce = (est.simce == '' || est.simce == ' ' || est.simce == null) ? '---' : est.simce;
 		
-		var ltext = '<li>';
-			ltext += '<a href="'+ base_url +'/establecimiento/perfil/'+ est.rdb +'/" class="btn btn-success btn-xs pull-right"><span class="glyphicon glyphicon-info-sign"></span></a>';
+		var ltext = '<li id="result_'+i+'">';
+			ltext += '<a href="'+ ajax_base_url +'establecimiento/perfil/'+ est.rdb +'/" class="btn btn-success btn-xs pull-right"><span class="glyphicon glyphicon-info-sign"></span></a>';
 			ltext += est.nombre;
 			ltext += '<br/>';
 			ltext += '<span class="data">Dependencia: ' + est.dependencia + '</span><br/>';
@@ -29,23 +29,25 @@ jQuery(document).ready(function(){
 		
 		ltext.mouseover(function(){
 			//markers_stack[(i-1)].openPopup();
-			markers_stack[(i-1)].setIcon( pin );
+			jQuery(this).addClass('hover');
+			markers_stack[i].setIcon( pin );
 		});
 		
 		ltext.mouseout(function(){
-			markers_stack[(i-1)].setIcon( defPin );
+			jQuery(this).removeClass('hover');
+			markers_stack[i].setIcon( defPin );
 		});
 		
 		setTimeout(function(){
 			jQuery('#sidebar-list').append(ltext);
-		}, i*100);
+		}, (i+1)*100);
 	}
 	
 	
 	// Search Schools
 	function estSearch(){
 		var bounds = map.getBounds();
-  		var boundsQuery = base_url + "/wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
+  		var boundsQuery = ajax_base_url + "wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
   		
 		var data = jQuery('#filter-form').serialize();
 		if( data == '' || data == ' ' ){
@@ -72,14 +74,24 @@ jQuery(document).ready(function(){
 		  	console.log(res);
 		  	jQuery(res).each(function(i,est){
 		  		
+		  		addToList( est, i );
+
 		  		// add a marker in the given location, attach some popup content to it and open the popup
-				var marker = L.marker([est.latitud, est.longitud]).addTo(map)
-				    .bindPopup(est.nombre + '<br/>' + est.direccion + ' #' + est.direccion_n);
-				    
+				var marker = L.marker([est.latitud, est.longitud])
+								.on('mouseover', function(evt) {
+									jQuery('#result_'+i).mouseover();
+									jQuery('#result_'+i).parent().animate({
+									    scrollTop: jQuery('#result_'+i).offset().top
+									 }, 500);	
+								})
+								.on('mouseout', function(evt) {
+									jQuery('#result_'+i).mouseout();
+								})
+								.addTo(map)
+				    			.bindPopup(est.nombre + '<br/>' + est.direccion + ' #' + est.direccion_n);
+
 				markers_id.push( est.rdb );
 				markers_stack.push( marker );
-				
-				addToList( est, i+1);
 				
 			});
 		  }
@@ -124,7 +136,7 @@ jQuery(document).ready(function(){
 		var address = jQuery('#address-search').val() + ", Chile";
 		address = address.replace(/ /g, "+");
 		
-		console.log('Buscando: ' + address);
+		//console.log('Buscando: ' + address);
 		
 		// Make wizard dissapear
   		jQuery('#wizard-container').animate({ opacity: 0 }, function(){

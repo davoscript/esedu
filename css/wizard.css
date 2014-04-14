@@ -75,7 +75,7 @@
 	background:rgba(0,0,0,.7);
 	-webkit-animation: liSlide 0.5s; /* Safari and Chrome */
 }
-#sidebar-list li:hover{
+#sidebar-list li.hover{
 	cursor:pointer;
 	color:#222;
 	background:rgba(255,255,255,1);

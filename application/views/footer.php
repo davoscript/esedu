@@ -1,7 +1,8 @@
 
 	<div id="footer">
       <div class="container">
-        <p class="text-muted">Desarrollado por @davoscript | Colaboración de Kinesys</p>
+        <p class="text-muted">desarrolla <a href="http://davoscript.com/">@davoscript</a> 
+        | colabora <a href="http://www.kinesys.cl/">Kinesys</a></p>
       </div>
     </div>
 
