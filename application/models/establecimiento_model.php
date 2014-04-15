@@ -12,10 +12,16 @@ Class Establecimiento_model extends CI_Model{
 	//   }
 	// }
 
-	public function getByBounds($longMin = 0.0, $longMax = 0.0, $latMin = 0.0, $latMax = 0.0, $filtros = null, $order = null, $page = 0, $per_page = 10){
+	public function getByBounds($longMin = 0.0, $longMax = 0.0, $latMin = 0.0, $latMax = 0.0, $ratio_sidebar = null, $filtros = null, $order = null, $page = 0, $per_page = 10){
 		//$longDiff = ($longMax - $longMin) / 20.0;
 		//$longMin += $longDiff;
 		//$longMax -= $longDiff;
+
+		if($ratio_sidebar){
+			$longDiff = ($longMax - $longMin) * $ratio_sidebar;
+			$longMin += $longDiff;
+			//$longMax -= $longDiff;			
+		}
 
 		$latDiff = ($latMax - $latMin) / 20.0;
 		$latMin += $latDiff;
