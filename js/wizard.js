@@ -47,7 +47,13 @@ jQuery(document).ready(function(){
 	// Search Schools
 	function estSearch(){
 		var bounds = map.getBounds();
-  		var boundsQuery = ajax_base_url + "wizard/establecimientosbybounds/" + bounds._northEast.lng + "/" + bounds._southWest.lng + "/" + bounds._northEast.lat + "/" + bounds._southWest.lat;
+  		var boundsQuery = ajax_base_url 
+  							+ "wizard/establecimientosbybounds/" 
+  							+ bounds._northEast.lng + "/" 
+  							+ bounds._southWest.lng + "/" 
+  							+ bounds._northEast.lat + "/" 
+  							+ bounds._southWest.lat + "/"
+  							+ (jQuery('#sidebar').width() / jQuery('#map').width()) ;
   		
 		var data = jQuery('#filter-form').serialize();
 		if( data == '' || data == ' ' ){

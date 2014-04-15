@@ -17,4 +17,3 @@ class Establecimiento extends CI_Controller{
   }
   
 }
-?>
