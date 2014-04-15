@@ -53,7 +53,7 @@ jQuery(document).ready(function(){
   							+ bounds._southWest.lng + "/" 
   							+ bounds._northEast.lat + "/" 
   							+ bounds._southWest.lat + "/"
-  							+ (jQuery('#sidebar').width() / jQuery('#map').width()) ;
+  							+ ( (jQuery('#sidebar').width() > 0 ? jQuery('#sidebar').width() : 200) / jQuery('#map').width()) ;
   		
 		var data = jQuery('#filter-form').serialize();
 		if( data == '' || data == ' ' ){
@@ -115,7 +115,6 @@ jQuery(document).ready(function(){
 		  	
 		  	// If point is found
 		  	if( response && jQuery.isArray(response) ){
-		  		
 		  		// Get point
 		  		var punto = response[0];
 		  		map.setView([punto.lat, punto.lon], 15);
@@ -123,16 +122,10 @@ jQuery(document).ready(function(){
 		  		aux();
 		  		
 		  		//estSearch();
-		  		
 		  	}
-
 		  }
 		});
 	}
-	
-	
-	
-	
 	
 	
 	jQuery('#wizard-form').submit(function(e){
@@ -196,18 +189,12 @@ jQuery(document).ready(function(){
 	});
 	
 	
-	
 	// Map Events
 	map.on('moveend', function(e) {
-		
 		if( map.getZoom() > 13 ){
-			
 			estSearch();
-			
 		}
-
 	});
-	
 	
 	
 	// Filtros
@@ -219,22 +206,29 @@ jQuery(document).ready(function(){
 		jQuery('#filter-form').submit();
 	});
 	
-	jQuery('#filter-form .radioch').click(function(){
+	/*jQuery('#filter-form .radioch').click(function(){
 		var val = jQuery(this).find('.autosubmit_r').attr('value');
 		console.log(val);
 		jQuery('#orden').val( val );
 		jQuery('#orden').change();
-	});
+	});*/
 	
-	jQuery('#orden').change(function(){
+	jQuery('#filter-form .radioch').change(function(){
 		jQuery('#filter-form').submit();
 	});
 	
 	jQuery('#filter-form').submit(function(e){
 		e.preventDefault();
-		
 		estSearch();
-		
 	});
+
+
+	// orden de priorizacion
+	jQuery( "#orden_sort" ).sortable({
+		update: function( event, ui ) {
+			jQuery('#filter-form').submit();
+		}
+	});
+	jQuery( "#orden_sort" ).disableSelection();
 	
 });

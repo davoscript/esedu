@@ -16,7 +16,8 @@
   <script type="text/javascript">
   	var ajax_base_url = '<?php echo base_url(); ?>';
   </script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>js/admin_scripts.js"></script>
   
@@ -87,6 +88,10 @@
 					   	
 					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
 	  						<label class="btn btn-primary active">
+								<input class="autosubmit" name="nivel_ensenanza[]" value="Parvularia" type="checkbox" checked="checked">
+						        Ed. Parvularia
+							</label>
+	  						<label class="btn btn-primary active">
 								<input class="autosubmit" name="nivel_ensenanza[]" value="Básica" type="checkbox" checked="checked">
 						        Ed. Básica
 							</label>
@@ -96,18 +101,28 @@
 							</label>
 					   	</div>
 					   	
-					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
-	  						<label class="btn btn-primary radioch active">
-								<input class="autosubmit_r" name="orden" value="psu" type="radio" checked="checked">
-						        PSU
-							</label>
-							<label class="btn btn-primary radioch">
-								<input class="autosubmit_r" name="orden" value="simce" type="radio">
-						        SIMCE
-							</label>
-							<input id="orden" name="orden2" value="psu" type="hidden">
+					   	<div class="" style="margin-left:10px; clear:both">
+	  						<ul id="orden_sort">
+	  							<li>
+		  							
+										<input class="autosubmit_r" name="orden[]" value="psu" type="hidden">
+								        PSU
+									
+								</li>
+								<li>
+									
+										<input class="autosubmit_r" name="orden[]" value="simce" type="hidden">
+								        SIMCE
+									
+								</li>
+								<li>
+									
+										<input class="autosubmit_r" name="orden[]" value="docentehh_alumno" type="hidden">
+								        HH x Alumno
+									
+								</li>
+							</ul>
 					   	</div>
-						
 					</form>
 		       
 		      </div>
