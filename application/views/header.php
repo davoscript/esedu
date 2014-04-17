@@ -1,27 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>eSEDU :: Escenario Educacional</title>
-  <meta name="description" content="El escenario de la educacion chilena entrega informacion sobre los establecimientos educacionales">
-  <meta name="author" content="DAVOSCRIPT E.I.R.L.">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme-yeti.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>css/wizard.css" />
-  
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <script type="text/javascript">
-  	var ajax_base_url = '<?php echo base_url(); ?>';
-  </script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-  <script src="<?php echo base_url(); ?>js/admin_scripts.js"></script>
-  
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<meta charset="utf-8">
+	<title>eSEDU :: Escenario Educacional</title>
+	<meta name="description" content="El escenario de la educacion chilena entrega informacion sobre los establecimientos educacionales">
+	<meta name="author" content="DAVOSCRIPT E.I.R.L.">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme-yeti.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/wizard.css" />
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script type="text/javascript">
+		var ajax_base_url = '<?php echo base_url(); ?>';
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url(); ?>js/admin_scripts.js"></script>
+
+	<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
 </head>
 <body>
 
