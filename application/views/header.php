@@ -132,6 +132,5 @@
 			</li>
 			<?php endif ?>
 	    </ul>
-
-		<p class="navbar-text pull-right">Contacto</p>
+		
 	</nav>

@@ -28,7 +28,7 @@
 <div class="containerlg">
 	<div class="row">
 	<?php foreach ($graficos as $i => $grafico): ?>
-		<?php if ($i>1 && $i%2): ?>
+		<?php if ($i>1 && !$i%2): ?>
 			</div><div class="row">
 		<?php endif ?>
 
