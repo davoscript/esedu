@@ -22,7 +22,8 @@
   <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>js/admin_scripts.js"></script>
   
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
 </head>
 <body>
 

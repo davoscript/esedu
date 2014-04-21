@@ -1,7 +1,4 @@
 
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-  
   <script type="text/javascript">
 	var map; // Defined outsite so it's global 
 	var base_url = "<?php echo site_url(); ?>";
