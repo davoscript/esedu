@@ -20,23 +20,13 @@ function init_<?php echo $name ?>() {
 			duration: 1000,
 			easing: 'out',
 		},
-		vAxes: {
-			0:{title:'Puntaje'},
-			<?php if(isset($ydos)): ?>
-			1:{title:'Alumnos'},
-			<?php endif ?>
-			},
-		<?php if(isset($ydos)): ?>
-		series: {
-            <?php echo $ydos ?>: { targetAxisIndex: 1, color: '#1abc9c', type: 'bars'}
-        },
-        <?php endif ?>
+		legend: { position: "none" },
 	};
 
 	var data = google.visualization.arrayToDataTable([
 		<?php echo $labels ?>, <?php echo $datos; ?>]);
 
-	var chart = new google.visualization.LineChart(document.getElementById('chart_div_<?php echo $name ?>'));
+	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div_<?php echo $name ?>'));
 
 	chart.draw(data, options);
 }

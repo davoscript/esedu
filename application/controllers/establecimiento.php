@@ -2,7 +2,11 @@
 class Establecimiento extends CI_Controller{
   
   function perfil( $id ){
-	
+
+  	$this->load->helper('GraficoNivel');
+  	$this->load->helper('GraficoNivelCurso');
+  	$this->load->helper('GraficoSimce');
+
   	$data['module'] = 'establecimiento';
 	$data['sub'] = 'main';
 	$data['rbd'] = $id;
@@ -11,63 +15,43 @@ class Establecimiento extends CI_Controller{
 	$est = $this->db->where('rdb', $id)->get('est_busqueda')->result();
 	$data['est'] = $est[0];
 
+	$gn = new GraficoNivel($id);
+	if($gn->isValid())
+		$data['grafico_nivel'] = $gn->toArray();
+
+	$gnc = new GraficoNivelCurso($id);
+	if($gnc->isValid())
+		$data['grafico_nivel_curso'] = $gnc->toArray();
+
 	$data['graficos'] = array();
 
 	// grafico simse 4to basico
-	$simce_4to = $this->db->where('rdb', $id)->where('nivel', 4)->order_by('agno', 'ASC')->limit(10)->get('simce')->result();
-	if($simce_4to){
-		$datos = array();
-		foreach ($simce_4to as $key => $s) {
-			$datos[] = "['$s->agno', $s->simce_leng, $s->simce_mate]";
-		}
-		$datos = implode(',', $datos);
-		$labels = "['Año', 'LEC', 'MAT']";
-
-		$data['graficos'][] = array('name'=>'simce_4to', 'text'=>'SIMCE 4to Basico'
-								, 'datos'=>$datos, 'labels'=>$labels );
-	}
+	$gs = new GraficoSimce($id, 4);
+	if($gs->isValid())
+		$data['graficos'][] = $gs->toArray();
 
 	// grafico simse 8vo basico
-	$simce_8vo = $this->db->where('rdb', $id)->where('nivel', 8)->order_by('agno', 'ASC')->limit(10)->get('simce')->result();
-	if($simce_8vo){
-		$datos = array();
-		foreach ($simce_8vo as $key => $s) {
-			$datos[] = "['$s->agno', $s->simce_leng, $s->simce_mate]";
-		}
-		$datos = implode(',', $datos);
-		$labels = "['Año', 'LEC', 'MAT']";
-
-		$data['graficos'][] = array('name'=>'simce_8vo', 'text'=>'SIMCE 8vo Basico'
-								, 'datos'=>$datos, 'labels'=>$labels );
-	}
-
+	$gs = new GraficoSimce($id, 8);
+	if($gs->isValid())
+		$data['graficos'][] = $gs->toArray();
+	
 	// grafico simse 2do medio
-	$simce_2do = $this->db->where('rdb', $id)->where('nivel', 10)->order_by('agno', 'ASC')->limit(10)->get('simce')->result();
-	if($simce_2do){
-		$datos = array();
-		foreach ($simce_2do as $key => $s) {
-			$datos[] = "['$s->agno', $s->simce_leng, $s->simce_mate]";
-		}
-		$datos = implode(',', $datos);
-		$labels = "['Año', 'LEC', 'MAT']";
-
-		$data['graficos'][] = array('name'=>'simce_2do', 'text'=>'SIMCE 2do Medio'
-								, 'datos'=>$datos, 'labels'=>$labels );
-		
-	}
-
+	$gs = new GraficoSimce($id, 10);
+	if($gs->isValid())
+		$data['graficos'][] = $gs->toArray();
+	
 	// grafico psu
 	$psu = $this->db->where('rdb', $id)->order_by('agno', 'ASC')->limit(10)->get('psu')->result();
 	if($psu){
 		$datos = array();
 		foreach ($psu as $key => $p) {
-			$datos[] = "['$p->agno', $p->psu_lenguaje, $p->psu_matematica, $p->psu_nem]";
+			$datos[] = "['$p->agno', $p->psu_lenguaje, $p->psu_matematica, $p->psu_nem, ".($p->alumnos_psu_lenguaje+$p->alumnos_psu_matematica)."]";
 		}
 		$datos = implode(',', $datos);
-		$labels = "['Año', 'LEC', 'MAT', 'NEM']";
+		$labels = "['Año', 'LEC', 'MAT', 'NEM', 'Alumnos']";
 
 		$data['graficos'][] = array('name'=>'psu', 'text'=>'PSU'
-								, 'datos'=>$datos, 'labels'=>$labels );
+								, 'datos'=>$datos, 'labels'=>$labels, 'ydos'=> 3 );
 	}
 
     $this->load->view('router', $data);
