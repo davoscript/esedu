@@ -18,6 +18,7 @@
   </script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="<?php echo base_url(); ?>js/jquery-ui.min.js"></script>
   <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>js/admin_scripts.js"></script>
   
@@ -27,12 +28,12 @@
 
 	<nav id="topnav" class="navbar navbar-inverse navbar-static-top" role="navigation">
 		
-		<a href="<?php echo site_url("wizard/region"); ?>">
+		<a href="<?php echo site_url(); ?>">
 			<img id="logo" src="<?php echo base_url(); ?>/img/logo_mini.png" alt="eSEDU" title="Escenario Educacional" />
 		</a>
 		
 		<div class="navbar-header">
-	      <a class="navbar-brand" href="<?php echo site_url("wizard/region"); ?>" title="Escenario Educacional">eSEDU</a>
+	      <a class="navbar-brand" href="<?php echo site_url(); ?>" title="Escenario Educacional">eSEDU</a>
 	    </div>
 
 	    <ul class="nav navbar-nav">
@@ -63,69 +64,10 @@
 			    </form>
 			</li>
 			<li class="top-fields">
-				<div id="filters" class="btn-toolbar" role="toolbar">
-
-					<form id="filter-form">
-						
-						<div class="btn-group btn-group-sm" data-toggle="buttons">
-							<label class="btn btn-primary active">
-								<input class="autosubmit" name="dependencia[]" value="Municipal" type="checkbox" checked="checked">
-						        Municipal
-							</label>
-						  	<label class="btn btn-primary active">
-						        <input class="autosubmit" name="dependencia[]" value="Particular Pagado" type="checkbox" checked="checked">
-						        Particular
-						  	</label>
-						  	<label class="btn btn-primary active">
-						        <input class="autosubmit" name="dependencia[]" value="Particular Subvencionado" type="checkbox" checked="checked">
-						        &nbsp;Particular Sub.
-						    </label>
-						  	<label class="btn btn-primary active">
-						        <input class="autosubmit" name="dependencia[]" value="Administracion Delegada" type="checkbox" checked="checked">
-						        &nbsp;Adm. Delegada
-						    </label>
-					   	</div>
-					   	
-					   	<div class="btn-group btn-group-sm" data-toggle="buttons" style="margin-left:10px;">
-	  						<label class="btn btn-primary active">
-								<input class="autosubmit" name="nivel_ensenanza[]" value="Parvularia" type="checkbox" checked="checked">
-						        Ed. Parvularia
-							</label>
-	  						<label class="btn btn-primary active">
-								<input class="autosubmit" name="nivel_ensenanza[]" value="Básica" type="checkbox" checked="checked">
-						        Ed. Básica
-							</label>
-							<label class="btn btn-primary active">
-								<input class="autosubmit" name="nivel_ensenanza[]" value="Media" type="checkbox" checked="checked">
-						        Ed. Media
-							</label>
-					   	</div>
-					   	
-					   	<div class="" style="margin-left:10px; clear:both">
-	  						<ul id="orden_sort">
-	  							<li>
-		  							
-										<input class="autosubmit_r" name="orden[]" value="psu" type="hidden">
-								        PSU
-									
-								</li>
-								<li>
-									
-										<input class="autosubmit_r" name="orden[]" value="simce" type="hidden">
-								        SIMCE
-									
-								</li>
-								<li>
-									
-										<input class="autosubmit_r" name="orden[]" value="docentehh_alumno" type="hidden">
-								        HH x Alumno
-									
-								</li>
-							</ul>
-					   	</div>
-					</form>
-		       
-		      </div>
+				<a href="#" id="settings" class="">
+					<span class="glyphicon glyphicon-cog"></span> 
+					<span class="text">Ajusta tu búsqueda</span>
+				</a>
 			</li>
 			<?php endif ?>
 	    </ul>
