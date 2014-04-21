@@ -6,6 +6,12 @@ class Dashboard extends CI_Controller{
 	$data['sub'] = 'main';
     $this->load->view('router', $data);
   }
+
+  function test(){
+  	$data['module'] = 'dashboard';
+	$data['sub'] = 'test';
+    $this->load->view('router', $data);
+  }
   
 }
 ?>

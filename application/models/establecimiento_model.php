@@ -23,12 +23,26 @@ Class Establecimiento_model extends CI_Model{
 			//$longMax -= $longDiff;			
 		}
 
-		$latDiff = ($latMax - $latMin) / 20.0;
+		$latDiff = ($latMax - $latMin) * 0.05;
 		$latMin += $latDiff;
 		$latMax -= $latDiff;
 
 		$poligono = "GeomFromText('Polygon(($longMin $latMin,$longMin $latMax,$longMax $latMax,$longMax $latMin,$longMin $latMin))', 4326)";
-		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud, direccion, direccion_n, psu, simce, nombre_comuna ";
+		$query = "SELECT rdb, nombre_establecimiento as nombre, dependencia, X(geopunto) as longitud, Y(geopunto) as latitud, direccion, direccion_n, nombre_comuna, psu, simce, docentehh_alumno, ";
+		
+		if($order){
+			$query .= ' ( ';
+
+			foreach ($order as $i=>$o) {
+				$order[$i] = $o.'_norm * '.(1.0-$i*0.2);
+			}
+
+			$query .= implode(' + ', $order);
+			$query .= ' ) as prioriza ';
+		}
+		else
+			$query .= ' psu as prioriza ';
+
 		$query .= " FROM est_busqueda WHERE MBRContains($poligono, geopunto) ";
 
 		foreach ($filtros as $filtro => $opciones) {
@@ -46,9 +60,8 @@ Class Establecimiento_model extends CI_Model{
 				$query .= " AND $filtro IN ('".implode("','", $opciones)."')";
 			}
 		}
-		
-		if($order)
-			$query .= " ORDER BY $order DESC";
+
+		$query .= " ORDER BY prioriza DESC ";
 		
 		//echo $query;
 		$query .= " LIMIT $per_page OFFSET ".($per_page*$page);

@@ -1,55 +1,31 @@
-<?php
-	$est = $this->db->where('rdb', $rbd)->get('est_busqueda')->result();
-	$est = $est[0];
-	
-	//print_r( $est );
-	
-	$establecimiento = array(
-		'rbd' => 'rbd',
-		'nombre' => 'INSTITUTO NACIONAL',
-		'comuna' => 'Santiago',
-		'region' => 'Metropolitana',
-		'dependencia' => 'Municipal',
-		'area_geo' => 'Urbano',
-		'lat' => '-33,44468254',
-		'lon' => '-70,65031555',
-		'nivel' => 'Básica niños/Enseñanza Media HC Jóvenes'
-	);
-?>
+<h1><?php echo $est->nombre_establecimiento; ?></h1>
 
-<ul class="list-group">
-	<li class="list-group-item">
-	  <strong>Nombre</strong>: <?php echo $est->nombre_establecimiento; ?>
-	</li>
-	<li class="list-group-item">
-	  <strong>Dependencia</strong>: <?php echo $est->dependencia; ?>
-	</li>
-	<li class="list-group-item">
-	  <strong>Nivel</strong>: <?php echo $est->nivel_ensenanza; ?>
-	</li>
-	<li class="list-group-item">
-	  <strong>Área geográfica</strong>: <?php echo $est->area_geografica; ?>
-	</li>
-	<li class="list-group-item">
-	  <strong>Teléfono:</strong>: <?php echo $est->telefono; ?>
-	</li>
-	<!--
-	<li class="list-group-item">
-	  <strong>Región</strong>: <?php echo $est->DESC_COMUNA; ?>
-	</li>
-	-->
-	<li class="list-group-item">
-	  <strong>Comuna</strong>: <?php echo $est->nombre_comuna; ?>
-	</li>
-</ul>
+<?php /*if ($est->facebook): ?>
+	<a href="https://www.facebook.com/<?php echo $est->facebook; ?>" class="pull-right">
+		<img src="<?php echo base_url(); ?>img/facebook_24.png" target="_blank" alt="Facebook" title="Facebook">
+	</a>
+<?php endif*/ ?>
+<?php if ($est->twitter): ?>
+	<a href="https://twitter.com/<?php echo $est->twitter; ?>" class="pull-right">
+		<img src="<?php echo base_url(); ?>img/twitter_24.png" target="_blank" alt="Twitter" title="Twitter">
+	</a>
+<?php endif ?>
 
-<!--
-<dl class="dl-horizontal">
-  <dt>Nombre:</dt>
-  <dd>Instituto Nacional</dd>
-  <dt>Tipo:</dt>
-  <dd>Científico Humanista</dd>
-  <dt>Modalidad:</dt>
-  <dd>Municipal</dd>
-</dl>
--->
+<p class="h4">
+	<span class="glyphicon glyphicon-map-marker"></span> 
+	<?php echo $est->direccion; ?> <?php echo $est->direccion_n; ?>, 
+	<?php echo $est->nombre_comuna; ?> <small>( zona <?php echo $est->area_geografica; ?> )</small>
+</p>
+
+<p class="h5">
+	<span class="glyphicon glyphicon-user"></span> 
+	<?php echo $est->dependencia; ?>
+</p>
+
+<p class="h5">
+	<span class="glyphicon glyphicon-phone-alt"></span> <?php echo $est->telefono; ?>
+</p>
+
+<p class="h5">
+	<span class="glyphicon glyphicon-book"></span> <?php echo $est->nivel_ensenanza; ?>
+</p>

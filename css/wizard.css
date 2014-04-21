@@ -1,3 +1,7 @@
+#topnav{
+	position: relative;
+	z-index: 99999;
+}
 #topnav .top-fields{
 	padding:7px 0px;
 	width:300px;
@@ -8,10 +12,10 @@
 }
 
 #filters{
-	margin-left:10px;
-	width:650px;
+	width:auto;
 }
 
+#orden_sort { list-style-type: none;  }
 
 
 #wizard-container{
@@ -30,14 +34,13 @@
 #wizard-container .well{
 	box-shadow:none;
 	border:none;
-	max-width:700px;
-	margin:0 auto;
+	width:700px;
 	padding:32px 50px;
 }
 
 #wizard-container h1{
 	margin-top:0px;
-	margin-bottom:20px;
+	margin-bottom:16px;
 }
 
 #wizard-container #address-search{
@@ -112,4 +115,81 @@
 
 
 
+#wstep-1{
+	position:absolute;
+	left:50%;
+	margin-left:-350px;
+}
+#wstep-2{
+	position:absolute;
+	left:150%;
+	margin-left:-350px;
+	opacity:0;
+}
 
+#orden_sort{
+	width:200px;
+	padding:0;
+ 	margin:0;
+ }
+#orden_sort li{
+	text-align:center;
+	list-style: none;
+	display:block;
+	padding:8px;
+	margin:0 0 4px 0;
+	border:1px solid #DDD;
+	background:#EEE;
+	cursor:move;
+}
+#orden_sort li .num{
+	float: left;
+	font-size: 12px;
+	line-height: 22px;
+}
+#settings{
+	display:none;
+	float:left;
+	padding:0;
+	width:170px;
+	font-size:26px;
+	margin-left:60px;
+	color:#FFF;
+}
+#settings .text{
+	display:block; 
+	margin-top:-24px;
+	margin-left:34px; 
+	font-size:14px;
+}
+#settings:hover{
+	background:none;
+}
+
+
+#filter-form .btn-group.btn-group-sm{width:100%;}
+
+#filter-form label.btn{
+	display:block;
+	float:none;
+	text-align:left;
+	margin:0 0 4px 0;
+	border:none;
+	box-shadow:none;
+}
+
+#filter-form label.btn.btn-success{
+	color:#888;
+	background:#CCC;
+}
+
+#filter-form label.btn.btn-success.active{
+	color:#FFF;
+	background:#43ac6a;
+}
+
+#filter-form label .glyphicon-ok{display:none;}
+#filter-form label .glyphicon-remove{display:inline-block;}
+
+#filter-form label.active .glyphicon-ok{display:inline-block;}
+#filter-form label.active .glyphicon-remove{display:none;}
