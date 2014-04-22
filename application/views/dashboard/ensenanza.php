@@ -35,7 +35,7 @@ jQuery(document).ready(function(){
 		markers
 			.addLayer( 
 				L.marker([<?php echo $est->latitud; ?>,<?php echo $est->longitud; ?>])
-					.bindPopup('<a href="/establecimiento/perfil/<?php echo $est->rdb ?>" target="_blank"><?php echo $est->nombre_establecimiento ?></a>')
+					.bindPopup('<a href="/establecimiento/perfil/<?php echo $est->rdb ?>" target="_blank"><?php echo str_replace("'", '', $est->nombre_establecimiento) ?></a>')
 			);
 	<?php endforeach; ?>
 
