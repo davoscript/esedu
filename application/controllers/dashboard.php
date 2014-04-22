@@ -23,6 +23,9 @@ class Dashboard extends CI_Controller{
 			if($_POST['nivel_ensenanza'] != '*')
 				$query->like('nivel_ensenanza', $_POST['nivel_ensenanza']);
 		}
+		else
+			$data['nivel_ensenanza'] = '*';
+
 		$ests = $query->get('est_busqueda')->result();
 
 		$data['ests'] = array();
