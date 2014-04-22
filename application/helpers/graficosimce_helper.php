@@ -29,7 +29,7 @@ class GraficoSimce extends Grafico
 		} 
 		
 		foreach ($simce as $key => $s) {
-			$this->_datos[] = "['$s->agno', $s->simce_leng, $s->simce_mate, ".($s->alumnos_leng+$s->alumnos_mate)."]";
+			$this->_datos[] = "['$s->agno', ".($s->simce_leng?:'null').", ".($s->simce_mate?:'null').", ".(($s->alumnos_leng+$s->alumnos_mate)?:'null')."]";
 		}
 		$this->_datos = implode(',', $this->_datos);
 	}
