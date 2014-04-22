@@ -36,7 +36,7 @@
 		<div class="col-lg-6">
 			<div class="innerbox">
 				<?php $this->load->view("$module/grafico_nivel", $grafico_nivel_curso ); ?>
-				<small>* Se consideran 2 grados en Parvulo, 8 en Básica y 4 en Media.</small>
+				<small>* Se considera 1 grado en Especial, 2 grados en Parvulo, 8 grados en Básica y 4 grados en Media.</small>
 			</div>
 		</div>
 	</div>
