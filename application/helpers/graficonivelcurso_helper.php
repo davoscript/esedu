@@ -24,7 +24,7 @@ class GraficoNivelCurso extends GraficoNivel
 		} 
 
 		foreach ($dbs as $key => $db) {
-			$this->_datos[] = "['$db->nivel_ensenanza_agregado', ".$db->numero_alumnos/$this->curso_nivel[$db->nivel_ensenanza_agregado]."]";
+			$this->_datos[] = "['$db->nivel_ensenanza_agregado', ".($db->numero_alumnos/$this->curso_nivel[$db->nivel_ensenanza_agregado]?:'null')."]";
 		}
 		$this->_datos = implode(',', $this->_datos);
 	}

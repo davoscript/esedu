@@ -15,6 +15,8 @@ class Establecimiento extends CI_Controller{
 	$est = $this->db->where('rdb', $id)->get('est_busqueda')->result();
 	$data['est'] = $est[0];
 
+	$data['html_head_title'] = $data['est']->nombre_establecimiento;
+
 	$gn = new GraficoNivel($id);
 	if($gn->isValid())
 		$data['grafico_nivel'] = $gn->toArray();

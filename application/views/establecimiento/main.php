@@ -25,15 +25,15 @@
 	</div><!-- end row -->
 </div><!-- end container -->
 
-<div class="containerlg">
+<div class="containerlg bg_grey">
 	<div class="row">
-		<div class="col-lg-6 bg_white">
+		<div class="col-lg-6">
 			<div class="innerbox">
 				<?php $this->load->view("$module/grafico_nivel", $grafico_nivel ); ?>
 			</div>
 		</div>
 
-		<div class="col-lg-6 bg_white">
+		<div class="col-lg-6">
 			<div class="innerbox">
 				<?php $this->load->view("$module/grafico_nivel", $grafico_nivel_curso ); ?>
 				<small>* Se consideran 2 grados en Parvulo, 8 en Básica y 4 en Media.</small>
@@ -47,7 +47,7 @@
 			</div><div class="row">
 		<?php endif ?>
 
-		<div class="col-lg-6 bg_white">
+		<div class="col-lg-6">
 			<div class="innerbox">
 				<?php $this->load->view("$module/grafico", $grafico); ?>
 			</div>
