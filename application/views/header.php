@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>eSEDU :: Escenario Educacional</title>
+  <title>eSEDU :: Escenario Educacional<?php if(isset($html_head_title)) echo ' :: '.$html_head_title ?></title>
   <meta name="description" content="El escenario de la educacion chilena entrega informacion sobre los establecimientos educacionales">
   <meta name="author" content="DAVOSCRIPT E.I.R.L.">
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">

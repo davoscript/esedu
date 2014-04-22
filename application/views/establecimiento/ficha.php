@@ -17,6 +17,8 @@
 	<?php echo $est->nombre_comuna; ?> <small>( zona <?php echo $est->area_geografica; ?> )</small>
 </p>
 
+<hr/>
+
 <p class="h5">
 	<span class="glyphicon glyphicon-user"></span> 
 	<?php echo $est->dependencia; ?>
@@ -29,3 +31,7 @@
 <p class="h5">
 	<span class="glyphicon glyphicon-book"></span> <?php echo $est->nivel_ensenanza; ?>
 </p>
+
+<!--<p class="h5">
+	<span class="glyphicon glyphicon-time"></span> <?php echo number_format($est->docentehh_alumno); ?>
+</p>-->

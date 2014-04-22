@@ -119,6 +119,12 @@
 									<h4>Nivel</h4>
 									<div class="btn-group btn-group-sm" data-toggle="buttons">
 				  						<label class="btn btn-success active">
+											<input class="autosubmit" name="nivel_ensenanza[]" value="Especial" type="checkbox" checked="checked">
+											<span class="glyphicon glyphicon-ok"></span> 
+									        <span class="glyphicon glyphicon-remove"></span>
+									        &nbsp;Ed. Especial
+										</label>
+				  						<label class="btn btn-success active">
 											<input class="autosubmit" name="nivel_ensenanza[]" value="Parvularia" type="checkbox" checked="checked">
 											<span class="glyphicon glyphicon-ok"></span> 
 									        <span class="glyphicon glyphicon-remove"></span>
