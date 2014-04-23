@@ -68,19 +68,19 @@
 									<h4>Intereses</h4>
 			  						<ul id="orden_sort">
 			  							<li>
-											<input class="autosubmit_r" name="orden[]" value="psu" type="hidden">
+											<input class="autosubmit_r" name="orden[]" value="docentehh_alumno" type="hidden">
 											<span class="num">1.</span>
+									        Horas Docentes por Alumno
+										</li>
+			  							<li>
+											<input class="autosubmit_r" name="orden[]" value="psu" type="hidden">
+											<span class="num">2.</span>
 									        PSU
 										</li>
 										<li>
 											<input class="autosubmit_r" name="orden[]" value="simce" type="hidden">
-											<span class="num">2.</span>
-									        SIMCE
-										</li>
-										<li>
-											<input class="autosubmit_r" name="orden[]" value="docentehh_alumno" type="hidden">
 											<span class="num">3.</span>
-									        HH x Alumno
+									        SIMCE
 										</li>
 									</ul>
 							   	</div>
