@@ -73,5 +73,5 @@
 			<?php endif ?>
 	    </ul>
 
-		<p class="navbar-text pull-right">Contacto</p>
+		<p class="navbar-text pull-right"><a href="mailto:david.fuentes@davoscript.com">Contacto</a></p>
 	</nav>
