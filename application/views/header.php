@@ -73,5 +73,9 @@
 			<?php endif ?>
 	    </ul>
 
-		<p class="navbar-text pull-right"><a href="mailto:david.fuentes@davoscript.com">Contacto</a></p>
+		<p class="navbar-text pull-right" id="cto">
+			<a href="/esedu/acercade">Acerca de eSEDU</a>
+			|  
+			<a href="mailto:david.fuentes@davoscript.com">Contacto</a>
+		</p>
 	</nav>

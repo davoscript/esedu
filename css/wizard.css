@@ -6,6 +6,11 @@
 	padding:7px 0px;
 	width:300px;
 }
+
+#cto a, #cto a:visited{
+	color: #fff;
+}
+
 #address-research{
 	border:none;
 	box-shadow: none;
