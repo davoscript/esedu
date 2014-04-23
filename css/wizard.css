@@ -193,3 +193,7 @@
 
 #filter-form label.active .glyphicon-ok{display:inline-block;}
 #filter-form label.active .glyphicon-remove{display:none;}
+
+#form-address-research{
+	opacity:0;
+}

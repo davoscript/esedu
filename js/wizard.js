@@ -270,6 +270,7 @@ jQuery(document).ready(function(){
 		});
 		
 		jQuery('#settings').show(500);
+		jQuery('#form-address-research').animate({opacity:1});
 		
 		jQuery('#sidebar').show(function(){
 			jQuery('#sidebar').animate({ opacity: 1 });
