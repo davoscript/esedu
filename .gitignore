@@ -10,3 +10,5 @@ application/config/*
 deploy.sh
 rsync_exclude.txt
 .htaccess
+
+index.php
